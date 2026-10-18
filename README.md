@@ -3,6 +3,8 @@
 > 用中文提问 → Agent 自动查看表结构 → 生成 SQL → 查询 → 画图 → 用中文给出结论。
 > 基于 **DeepSeek function calling** 手写 Agent 循环（不依赖 Agent 框架），配套 Chinook SQLite 数据库。
 
+📘 [**原理与流程**](docs/原理与流程.md) ｜ 🧭 [环境搭建](docs/环境搭建.md) ｜ 🔍 [代码导读](docs/代码导读.md) ｜ ❓ [常见问题FAQ](docs/常见问题FAQ.md) ｜ 📋 [观察日志](docs/观察日志.md) ｜ 🎬 [演示脚本](docs/演示脚本.md)
+
 ![Streamlit 界面](docs/screenshots/04-streamlit-ui.png)
 
 > 上图：提问 → 结论 + 依据 + **口径出处** + 图表；左侧展示配置、工具与示例问题。
@@ -223,6 +225,7 @@ data_agent/
 │   ├── results.md           # 评测报告（自动生成）
 │   └── last_run_trace.md    # 完整轨迹（自动生成，供人工复核）
 ├── docs/
+│   ├── 原理与流程.md         # 原理篇：机制、协议、端到端旅程 ⭐⭐
 │   ├── 环境搭建.md           # 从零到跑通（含检查清单）
 │   ├── 代码导读.md           # 调用链 + 四个动手实验
 │   ├── 常见问题FAQ.md        # 20 个真实报错与解法
