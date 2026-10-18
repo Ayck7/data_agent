@@ -1,0 +1,16 @@
+# Streamlit 配置：为「通过隧道暴露到公网」做准备
+#
+# 为什么需要下面两行：
+#   cloudflared / ngrok 这类隧道会用随机域名 + https 转发到你本地的 8501 端口。
+#   Streamlit 默认开启 CORS 与 XSRF 保护，会认为"来自陌生域名的 WebSocket 连接"不可信，
+#   表现为页面能打开但一直转圈、组件无响应。开发演示时关闭这两项即可。
+#
+# ⚠️ 安全说明：关闭它们是降低了防护等级，因此必须配合访问口令（.env 里的 DEMO_PASSWORD），
+#    并且演示结束后应及时关闭隧道。生产环境应配置正确的 CORS 白名单，而不是简单关闭。
+
+[server]
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
