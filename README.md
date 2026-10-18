@@ -112,20 +112,23 @@ cloudflared tunnel --url http://localhost:8501
 ## 快速开始
 
 ```powershell
-# 1. 安装依赖
-python -m pip install openai matplotlib python-dotenv
+# 1. 安装依赖（版本已锁定）
+python -m pip install -r requirements.txt
 
-# 2. 配置密钥（.env）
-#    DEEPSEEK_API_KEY=sk-xxxx
+# 2. 配置密钥
+copy .env.example .env
+#    然后编辑 .env，填入：DEEPSEEK_API_KEY=sk-xxxx
 
 # 3. 运行 Agent
-python m3_agent.py
+python m4_agent.py
 
-# 4. 跑评测（7 个用例，约 1–3 分钟）
+# 4. 跑评测（10 个用例，约 1–3 分钟）
 python eval/run_eval.py
 ```
 
-交互命令：`clear` 清空记忆 ｜ `trim` 查看裁剪效果 ｜ `exit` 退出
+交互命令：`clear` 清空记忆 ｜ `trim` 查看裁剪效果 ｜ `index` 重建数据字典索引 ｜ `exit` 退出
+
+> 完整环境搭建步骤见 [`docs/环境搭建.md`](docs/环境搭建.md)　·　报错排查见 [`docs/常见问题FAQ.md`](docs/常见问题FAQ.md)
 
 ---
 
@@ -211,6 +214,8 @@ data_agent/
 ├── docs_chroma/             # 数据字典向量索引（可重建，已 gitignore）
 ├── app.py                   # M5：Streamlit 界面（含演示口令门禁）
 ├── data/chinook.db          # Chinook 示例数据库
+├── requirements.txt         # 依赖清单（版本已锁定）
+├── .env.example             # 环境变量模板（复制为 .env）
 ├── .streamlit/config.toml   # 隧道访问配置
 ├── eval/
 │   ├── questions.md         # 评测集与逐版本实测 ⭐
@@ -218,8 +223,12 @@ data_agent/
 │   ├── results.md           # 评测报告（自动生成）
 │   └── last_run_trace.md    # 完整轨迹（自动生成，供人工复核）
 ├── docs/
+│   ├── 环境搭建.md           # 从零到跑通（含检查清单）
+│   ├── 代码导读.md           # 调用链 + 四个动手实验
+│   ├── 常见问题FAQ.md        # 20 个真实报错与解法
 │   ├── 观察日志.md           # 行为观察与根因分析 ⭐
-│   └── 演示脚本.md           # 2 分钟现场演示脚本 ⭐
+│   ├── 演示脚本.md           # 2 分钟现场演示脚本 ⭐
+│   └── screenshots/         # 5 张截图（README 引用）
 ├── outputs/                 # 生成的图表（已 gitignore）
 └── .env                     # API Key / 演示口令（已 gitignore）
 ```

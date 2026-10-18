@@ -1,0 +1,27 @@
+# 数据分析 Agent · 依赖清单
+# 版本来自实际运行环境（Python 3.14.6，Windows），安装：
+#   python -m pip install -r requirements.txt
+
+# ---------- 模型调用 ----------
+openai==3.13.0
+python-dotenv==1.2.3
+
+# ---------- RAG 检索（数据字典）----------
+langchain-core==1.6.2
+langchain-community==0.4.2
+langchain-text-splitters==1.1.2
+langchain-chroma==1.1.0
+langchain-huggingface==1.2.2
+chromadb==1.5.9
+sentence-transformers==6.0.1
+
+# ---------- 画图 ----------
+matplotlib==3.11.2
+
+# ---------- 界面 ----------
+streamlit==1.64.0
+
+# 说明：
+# 1. torch 由 sentence-transformers 自动安装（体积约 2GB，CPU 版即可，无需显卡）。
+#    如需锁定版本可额外添加：torch==2.14.0
+# 2. numpy / pandas / pillow 为上述依赖的传递依赖，无需手动安装。
